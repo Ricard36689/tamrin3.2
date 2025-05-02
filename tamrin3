@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Aryatamrin_11
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int vanelgemat = 5000;
+            int sokolategemat = 6000;
+            int totfarngigemat = 5500;
+
+            int vanelkarid = 0;
+            int sokolatekarid = 0;
+            int totfarangikarid = 0;
+            int mostariha = 0;
+
+            Console.WriteLine("tedad mostare = ");
+
+            int mostare = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < mostare; i++)
+            {
+                Console.WriteLine("mastari {0}", i + 1);
+
+                Console.WriteLine("tedad vanel = ");
+                int vanel = int.Parse(Console.ReadLine());
+                Console.WriteLine("tedad sokolat = ");
+                int sokolat = int.Parse(Console.ReadLine());
+                Console.WriteLine("tedad totfarangi = ");
+                int totfarngi = int.Parse(Console.ReadLine());
+
+                vanelkarid += vanel;
+                sokolatekarid += sokolat;
+                totfarangikarid += totfarngi;
+
+                mostariha += +(vanel * vanelgemat) + (sokolat * sokolategemat) + (totfarngi * totfarngigemat);
+            }
+            Console.WriteLine("tadad foros vanel {0}", vanelkarid);
+            Console.WriteLine("tadad foros  sokolaty {0}", sokolatekarid);
+            Console.WriteLine("tadad foros totfarangi {0}", totfarangikarid);
+
+            int foros = Math.Max(vanelkarid, Math.Max(sokolatekarid, totfarangikarid));
+
+            if (foros == vanelkarid && foros != sokolatekarid && foros != totfarangikarid)
+            {
+                Console.WriteLine("vanel");
+            }
+            else if (foros == totfarangikarid && foros != vanelkarid && foros != sokolatekarid)
+            {
+                Console.WriteLine("totfarnhgi");
+            }
+            else if (foros == sokolatekarid && foros != vanelkarid && foros != totfarangikarid)
+            {
+                Console.WriteLine("sokolat");
+            }
+            else if (foros == vanelkarid && foros == totfarangikarid && foros != sokolatekarid)
+            {
+                Console.WriteLine("vanel , totfarngi ");
+            }
+            else if (foros == vanelkarid && foros == sokolatekarid && foros != totfarangikarid)
+            {
+                Console.WriteLine("vanel, sokolat");
+            }
+            else if (foros == totfarangikarid && foros == sokolatekarid && foros != vanelkarid)
+            {
+                Console.WriteLine("totfarngi, sokolat ");
+            }
+            else if (foros == vanelkarid && foros == totfarangikarid && foros == sokolatekarid)
+            {
+                Console.WriteLine("vanel , sokolat totfarngi");
+
+            }
+            Console.WriteLine(mostariha);
+        }
+    }
+}
+
